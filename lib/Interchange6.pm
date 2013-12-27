@@ -6,16 +6,17 @@ Interchange6 - Open Source Shop Machine
 
 =head1 VERSION
 
-0.001
+0.002
 
 =cut
 
-our $VERSION = '0.001';
+our $VERSION = '0.002';
 
 =head1 DESCRIPTION
 
 Interchange6, the Open Source Shop Machine, is the Modern Perl ecosystem
 for online business.
+It uses the L<DBIx::Class> database schema L<Interchange6::Schema>.
 
 This module provides the following APIs:
 
