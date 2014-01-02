@@ -11,8 +11,11 @@ WriteMakefile(
       ? ('LICENSE'=> 'perl')
       : ()),
     PL_FILES            => {},
-    PREREQ_PM => {
+    BUILD_REQUIRES => {
         'Test::More' => 0,
+        'Test::Warnings' => 0,
+    },
+    PREREQ_PM => {
         'Moo' => 0,
 	    'Interchange6::Schema'     => 0.004,
     },

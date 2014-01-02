@@ -22,7 +22,8 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "0"
+            "Test::More" : "0",
+            "Test::Warnings" : "0"
          }
       },
       "configure" : {
@@ -33,8 +34,7 @@
       "runtime" : {
          "requires" : {
             "Interchange6::Schema" : "0.004",
-            "Moo" : "0",
-            "Test::More" : "0"
+            "Moo" : "0"
          }
       }
    },
@@ -47,5 +47,5 @@
          "url" : "https://github.com/interchange/Interchange6.git"
       }
    },
-   "version" : "0.002"
+   "version" : "0.003"
 }
