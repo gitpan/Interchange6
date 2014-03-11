@@ -6,11 +6,11 @@ Interchange6 - Open Source Shop Machine
 
 =head1 VERSION
 
-0.003
+0.004
 
 =cut
 
-our $VERSION = '0.003';
+our $VERSION = '0.004';
 
 =head1 DESCRIPTION
 
@@ -44,9 +44,13 @@ Please anticipate API changes in this early state of development.
 
 Stefan Hornburg (Racke), C<racke@linuxia.de>
 
+=head1 CONTRIBUTORS
+
+Peter Mottram C<peter@sysnix.com>
+
 =head1 LICENSE AND COPYRIGHT
 
-Copyright 2011-2013 Stefan Hornburg (Racke).
+Copyright 2011-2014 Stefan Hornburg (Racke).
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of either: the GNU General Public License as published
