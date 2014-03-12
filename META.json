@@ -23,6 +23,7 @@
       "build" : {
          "requires" : {
             "Test::More" : "0",
+            "Test::Most" : "0",
             "Test::Warnings" : "0"
          }
       },
@@ -49,5 +50,5 @@
          "url" : "https://github.com/interchange/Interchange6.git"
       }
    },
-   "version" : "0.004"
+   "version" : "0.010"
 }

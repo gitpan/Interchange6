@@ -4,6 +4,7 @@ author:
   - 'Stefan Hornburg (Racke) <racke@linuxia.de>'
 build_requires:
   Test::More: 0
+  Test::Most: 0
   Test::Warnings: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
@@ -26,4 +27,4 @@ requires:
 resources:
   bugtracker: https://github.com/interchange/Interchange6/issues
   repository: https://github.com/interchange/Interchange6.git
-version: 0.004
+version: 0.010
