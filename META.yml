@@ -27,4 +27,4 @@ requires:
 resources:
   bugtracker: https://github.com/interchange/Interchange6/issues
   repository: https://github.com/interchange/Interchange6.git
-version: 0.010
+version: 0.011
