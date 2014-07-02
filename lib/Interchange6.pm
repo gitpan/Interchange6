@@ -6,11 +6,11 @@ Interchange6 - Open Source Shop Machine
 
 =head1 VERSION
 
-0.030
+0.040
 
 =cut
 
-our $VERSION = '0.030';
+our $VERSION = '0.040';
 
 =head1 DESCRIPTION
 
@@ -40,11 +40,9 @@ and price caching.
 
 Please anticipate API changes in this early state of development.
 
-=head1 AUTHOR
+=head1 AUTHORS
 
 Stefan Hornburg (Racke), C<racke@linuxia.de>
-
-=head1 CONTRIBUTORS
 
 Peter Mottram C<peter@sysnix.com>
 

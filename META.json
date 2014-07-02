@@ -4,7 +4,7 @@
       "Stefan Hornburg (Racke) <racke@linuxia.de>"
    ],
    "dynamic_config" : 1,
-   "generated_by" : "ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.133380",
+   "generated_by" : "ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.140640",
    "license" : [
       "perl_5"
    ],
@@ -35,9 +35,10 @@
       "runtime" : {
          "requires" : {
             "DateTime" : "0",
-            "Interchange6::Schema" : "0.03",
+            "Interchange6::Schema" : "0.04",
             "Moo" : "0",
-            "MooX::HandlesVia" : "0"
+            "MooX::HandlesVia" : "0",
+            "MooseX::CoverableModifiers" : "0.3"
          }
       }
    },
@@ -50,5 +51,5 @@
          "url" : "https://github.com/interchange/Interchange6.git"
       }
    },
-   "version" : "0.030"
+   "version" : "0.040"
 }

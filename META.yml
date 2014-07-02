@@ -3,28 +3,29 @@ abstract: 'Interchange6 Open Source Shop Machine'
 author:
   - 'Stefan Hornburg (Racke) <racke@linuxia.de>'
 build_requires:
-  Test::More: 0
-  Test::Most: 0
-  Test::Warnings: 0
+  Test::More: '0'
+  Test::Most: '0'
+  Test::Warnings: '0'
 configure_requires:
-  ExtUtils::MakeMaker: 0
+  ExtUtils::MakeMaker: '0'
 dynamic_config: 1
-generated_by: 'ExtUtils::MakeMaker version 6.66, CPAN::Meta::Converter version 2.133380'
+generated_by: 'ExtUtils::MakeMaker version 6.98, CPAN::Meta::Converter version 2.140640'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
-  version: 1.4
+  version: '1.4'
 name: Interchange6
 no_index:
   directory:
     - t
     - inc
 requires:
-  DateTime: 0
-  Interchange6::Schema: 0.03
-  Moo: 0
-  MooX::HandlesVia: 0
+  DateTime: '0'
+  Interchange6::Schema: '0.04'
+  Moo: '0'
+  MooX::HandlesVia: '0'
+  MooseX::CoverableModifiers: '0.3'
 resources:
   bugtracker: https://github.com/interchange/Interchange6/issues
   repository: https://github.com/interchange/Interchange6.git
-version: 0.030
+version: '0.040'
