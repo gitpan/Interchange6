@@ -5,8 +5,7 @@ package Interchange6::Cart::Product;
 use strict;
 use Moo;
 use Interchange6::Types;
-use Interchange6::Hook;
-with 'Interchange6::Role::Costs', 'Interchange6::Role::Hookable';
+with 'Interchange6::Role::Costs';
 
 use namespace::clean;
 
@@ -60,7 +59,7 @@ has name => (
 
 =head2 price
 
-Product price is required and a positive number.
+Product price is required and a positive number or zero.
 
 Price is required, because you want to maintain the price that was valid at the time of adding to the cart. Should the price in the shop change in the meantime, it will maintain this price.
 
@@ -68,7 +67,7 @@ Price is required, because you want to maintain the price that was valid at the 
 
 has price => (
     is        => 'ro',
-    isa       => PositiveNum,
+    isa       => AnyOf [ PositiveNum, Zero ],
     required  => 1,
 );
 
@@ -80,7 +79,7 @@ Selling price is the price after group pricing, tier pricing or promotional disc
 
 has selling_price => (
     is        => 'rw',
-    isa       => PositiveNum,
+    isa       => Num,
     builder   => 1,
     lazy      => 1,
 );
@@ -88,6 +87,24 @@ has selling_price => (
 sub _build_selling_price {
     my $self = shift;
     return $self->price;
+}
+
+=head2 discount_percent
+
+This is the integer discount percentage calculated from the difference
+between L</price> and L</selling_price>. This attribute should not normally
+be set since as it is a calculated value.
+
+=cut
+
+has discount_percent => (
+    is => 'lazy',
+);
+
+sub _build_discount_percent {
+    my $self = shift;
+    return 0 if $self->price == $self->selling_price;
+    return int( ( $self->price - $self->selling_price ) / $self->price * 100 );
 }
 
 =head2 quantity
@@ -98,10 +115,17 @@ than zero. Default for quantity is 1.
 =cut
 
 has quantity => (
-    is      => 'rw',
+    is      => 'ro',
     isa     => AllOf [ PositiveNum, Int ],
     default => 1,
+    writer  => 'set_quantity',
 );
+
+after quantity => sub {
+    my $self = shift;
+    $self->clear_subtotal;
+    $self->clear_total;
+};
 
 =head2 sku
 
