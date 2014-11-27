@@ -20,13 +20,13 @@ Cart cost class for L<Interchange6>.
 
 =over 4
 
-=item * cart_costs_id
+=item * id
 
-Can be used by subclasses to tie cart cost to L<Interchange6::Schema::Result::CartCost>.
+Cart id can be used for subclasses, e.g. primary key value for cart or product costs in the database.
 
 =cut
 
-has cart_costs_id => (
+has id => (
     is => 'ro',
     isa => Int,
 );
@@ -56,7 +56,7 @@ has label => (
 
 =item * relative
 
-Boolean defaults to 0. If true then L<amount> is relative to L<Cart subtotal|Intechange6::Cart/subtotal>. If false then L<amount> is an absolute cost.
+Boolean defaults to 0. If true then L<amount> is relative to L<object subtotal|Intechange6::Role::Cost/subtotal>. If false then L<amount> is an absolute cost.
 
 =cut
 
@@ -68,7 +68,7 @@ has relative => (
 
 =item * inclusive
 
-Boolean defaults to 0. If true signifies that the cost is already included in L<Product price|Interchange6::Cart::Product/price> for example to calculate the tax component for gross prices.
+Boolean defaults to 0. If true signifies that the cost is already included in the price for example to calculate the tax component for gross prices.
 
 =cut
 
@@ -78,9 +78,21 @@ has inclusive => (
     default => 0,
 );
 
+=item * compound
+
+Boolean defaults to 0. If true signifies that any following costs should be applied to the modified price B<after> this cost has been applied. This might be used for such things as discounts which are applied before taxes are applied to the modified price.
+
+=cut
+
+has compound => (
+    is       => 'ro',
+    isa      => Bool,
+    default  => 0,
+);
+
 =item * amount
 
-Required amount of the cost. This is the absolute cost unless L<relative> is true in which case it realtive to the L<Cart subtotal|Interchange6::Cart/subtotal>. For example for a tax of 8% amount should be set to 0.08
+Required amount of the cost. This is the absolute cost unless L</relative> is true in which case it is relative to the L<object subtotal|Interchange6::Role::Cost/subtotal>. For example for a tax of 8% amount should be set to 0.08
 
 =cut
 
@@ -88,6 +100,18 @@ has amount => (
     is      => 'ro',
     isa     => AllOf [ Defined, Num ],
     required => 1,
+);
+
+=item * current_amount
+
+Calculated current amount of cost. Unless L</relative> is true this will be the same as L</amount>. If L</relative> is true then this is value is recalulated whenever C<total> is called on the object.
+
+=cut
+
+has current_amount => (
+    is     => 'rw',
+    isa    => Num,
+    coerce => sub { sprintf( "%.2f", $_[0] ) },
 );
 
 =back

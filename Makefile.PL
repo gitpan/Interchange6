@@ -21,14 +21,14 @@ WriteMakefile(
         'MooseX::CoverableModifiers' => 0.30,
         'MooX::HandlesVia' => 0,
         'DateTime' => 0,
-	'Interchange6::Schema' => 0.040,
     },
     dist                => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean               => { FILES => 'Interchange6-*' },
     META_MERGE        => {
         resources => {
             repository  => 'https://github.com/interchange/Interchange6.git',
-            bugtracker => 'https://github.com/interchange/Interchange6/issues'
+            bugtracker => 'https://github.com/interchange/Interchange6/issues',
+            IRC => 'irc://irc.freenode.net/#interchange',
         },
     },
 );
