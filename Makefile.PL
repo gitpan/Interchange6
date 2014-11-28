@@ -17,7 +17,8 @@ WriteMakefile(
         'Test::Warnings' => 0,
     },
     PREREQ_PM => {
-        'Moo' => 0,
+        'namespace::clean' => 0,
+        'Moo' => '1.004005',
         'MooseX::CoverableModifiers' => 0.30,
         'MooX::HandlesVia' => 0,
         'DateTime' => 0,

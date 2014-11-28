@@ -21,11 +21,12 @@ no_index:
     - inc
 requires:
   DateTime: '0'
-  Moo: '0'
+  Moo: '1.004005'
   MooX::HandlesVia: '0'
   MooseX::CoverableModifiers: '0.3'
+  namespace::clean: '0'
 resources:
   IRC: irc://irc.freenode.net/#interchange
   bugtracker: https://github.com/interchange/Interchange6/issues
   repository: https://github.com/interchange/Interchange6.git
-version: '0.060'
+version: '0.061'
